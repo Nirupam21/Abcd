@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+<head>
+     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <style>
+     table {
+       border-collapse: collapse;
+       border-spacing: 0;
+       width: 100%;
+       border: 1px solid #ddd;
+    }
+
+    th, td {
+       text-align: left;
+       padding: 8px;
+     }
+    </style>
+    <script>
+        var count=0;
+        document.write('{% for row in allrows %}');
+           count++;
+        document.write('{% endfor %}');
+        document.write('<h5><b>Number of players : ',count,'</b></h5>');
+        document.getElementById()
+    </script>
+</head>
+<body>
+     <br/>
+     <div style="overflow-x:auto;">
+     <table>
+     <tr class="table">
+         <td>Name</td>
+         <td>Gender</td>
+         <td>Age</td>
+         <td>Age Group</td>
+         <td>Weight</td>
+         <td>Weight Category</td>
+         <td>Playing For</td>
+         <td>State</td>
+         <td>Country</td>
+     </tr>
+    {% for row in allrows %}
+     <tr>
+         <td>{{ row.name }}</td>
+         <td>{{ row.gender }}</td>
+         <td>{{ row.age }}</td>
+         <td>{{ row.agegroup }}</td>
+         <td>{{ row.weight }}</td>
+         <td>{{ row.weightcategory }}</td>
+         <td>{{ row.PlayingFor }}</td>
+         <td>{{ row.state }}</td>
+         <td>{{ row.country }}</td>
+         <td>
+             <a href="/delete.html/{{row.id}}" class="button"><span class="glyphicon glyphicon-trash"></span></a>
+         </td>
+     </tr>
+     {% endfor %}
+     </table>
+     </div>
+     <div>
+     <br/><br/>
+      <h3 class="fp"><br/>Enter the club/district/state/country :</h3><br/>
+         <input type="text" id="for"/><br/><br/>
+         <button onclick="count()" class="btn btn-success">Submit</button><br/><br/>
+         <h5 id="result"></h5>
+     </div>
+   <script>
+    function count(){
+        var a=document.getElementById('for').value;
+        var count=0;
+        document.write('{% for row in allrows %}');
+          if("{{row.PlayingFor}}" == a)
+            count++;
+        document.write('{% endfor %}');
+          document.write("<h1><b>The Number of Players = ",count,'</b></h1>');
+       }
+   </script>
+</body>
+{% endblock %}

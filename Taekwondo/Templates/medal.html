@@ -1,0 +1,19 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="icon" href="{% static 'images/img8.jpg' %}" class="image">
+    <title>Medalists</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+          <div class="container">
+   			    <form method="POST">
+				  {% csrf_token %}
+				  <h3>Medalists :</h3><br/><br/>
+					{{ form.as_p }}
+				  <button type="submit" class="btn btn-success">Submit</button>
+				</form>
+          </div>
+</body>
+</html>

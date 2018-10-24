@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<head>
+   <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <style>
+        table {
+       border-collapse: collapse;
+       border-spacing: 0;
+       width: 100%;
+       border: 1px solid #ddd;
+    }
+
+    th, td {
+       text-align: left;
+       padding: 8px;
+     }
+
+     .table{
+       background:black;
+       color:white;
+     }
+    </style>
+</head>
+<body>
+<div style="overflow-x:auto;">
+<table>
+    <tr class="table">
+         <td><b>NAME</b></td>
+         <td><b>Gender</b></td>
+         <td><b>Age</b></td>
+         <td><b>Age Group</b></td>
+         <td><b>Weight</b></td>
+         <td><b>Weight Category</b></td>
+         <td><b>Playing For</b></td>
+         <td><b>State</b></td>
+         <td><b>Country</b></td>
+     </tr>
+    {% for row in record %}
+     <tr>
+         <td><b>{{ row.name }}</b></td>
+         <td><b>{{ row.gender }}</b></td>
+         <td><b>{{ row.age }}</b></td>
+         <td><b>{{ row.agegroup }}</b></td>
+         <td><b>{{ row.weight }}</b></td>
+         <td><b>{{ row.weightcategory }}</b></td>
+         <td><b>{{ row.PlayingFor }}</b></td>
+         <td><b>{{ row.state }}</b></td>
+         <td><b>{{ row.country }}</b></td>
+
+         <td>
+             <a href="/delete.html/{{row.id}}" class="button"><span class="glyphicon glyphicon-trash"></span></a>
+         </td>
+      </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+{% endblock content %}

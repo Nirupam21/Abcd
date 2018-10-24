@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<head>
+   <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+<br/><br/>
+<div class="pd">
+    <p>Name : {{ record.name }}</p>
+    <p>Gender : {{ record.gender }}</p>
+    <p>Age : {{ record.age }}</p>
+    <p>Age Group : {{ record.agegroup }}</p>
+    <p>Weight : {{ record.weight}}</p>
+    <p>Weight Category : {{ record.weightcategory }}</p>
+    <p>Playing For : {{ record.PlayingFor }}</p>
+    <p>State : {{ record.state }}</p>
+    <p>Country : {{ record.country }}</p>
+
+</div>
+</body>
+{% endblock content %}

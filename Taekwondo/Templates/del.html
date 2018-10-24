@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<br/><br/>
+<head>
+   <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+<form method="POST" action="">
+    {% csrf_token %}
+    <h3 class="fp"><br/>Enter the Name :</h3><br/>
+    <input type="text" name="delete"/>
+    <input class="btn btn-danger" type="submit" value="Search"/>
+    <span style="color:red"><b>{{ errMsg }}</b></span>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<head>
+   <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <style>
+        table {
+       border-collapse: collapse;
+       border-spacing: 0;
+       width: 100%;
+       border: 1px solid #ddd;
+    }
+
+    th, td {
+       text-align: left;
+       padding: 8px;
+     }
+
+     .table{
+       background:black;
+       color:white;
+     }
+    </style>
+        <script>
+        var count=0;
+        document.write('{% for row in record %}');
+           count++;
+        document.write('{% endfor %}');
+        document.write('<h5><b>Number of players : ',count,'</b></h5>');
+    </script>
+</head>
+<body>
+<div style="overflow-x:auto;">
+<table>
+    <tr class="table">
+         <td>NAME</td>
+         <td>Gender</td>
+         <td>Weight Category</td>
+         <td>Age Group</td>
+         <td>Playing For</td>
+
+     </tr>
+    {% for row in record %}
+     <tr>
+         <td>{{ row.name }}</td>
+         <td>{{ row.gender }}</td>
+         <td>{{ row.weightcategory }}</td>
+         <td>{{ row.agegroup }}</td>
+         <td>{{ row.PlayingFor }}</td>
+         <td>
+             <a href="/delete.html/{{row.id}}" class="button"><span class="glyphicon glyphicon-trash"></span></a>
+         </td>
+      </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% load static %}
+<html>
+  <head>
+     <script src="{% static 'js/jspdf.min.js' %}"></script>
+     <script src="{% static 'js/html2canvas.js' %}"></script>
+     <script>
+         function genPDF()  {
+              html2canvas(document.body,{
+                   onrendered: function(canvas) {
+                       var img=canvas.toDataURL("image/jpg");
+                       var doc=new jsPDF();
+                       doc.addImage(img, 'JPEG',20,20);
+                       doc.save('fixture.pdf');
+                    }
+              });
+          }
+     </script>
+  </head>
+
+  <body>
+       <h1>jsPDF demo</h1>
+       <a href="javascript:genPDF()">Download PDF</a>
+  </body> 
+</html>
