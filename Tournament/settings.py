@@ -25,7 +25,7 @@ SECRET_KEY = '7dm3-@oq-0uoutmebqd4qj%av-)pb!w#+45o14*8#o8cb_9up7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fixturegen.herokuapp.com']
 
 
 # Application definition
